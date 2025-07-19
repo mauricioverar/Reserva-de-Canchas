@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 reservadecanchas,cl.codewave.model,Cancha,15,23,0,0,5,8,4,3,4,3
 reservadecanchas,cl.codewave.model,Horario,7,0,0,0,2,0,2,0,2,0
-reservadecanchas,cl.codewave.model,Reserva,9,24,0,0,3,9,3,3,3,3
-reservadecanchas,cl.codewave.service,ReservaService,36,73,4,6,10,16,3,7,1,4
+reservadecanchas,cl.codewave.model,Reserva,6,27,0,0,2,10,2,4,2,4
+reservadecanchas,cl.codewave.service,ReservaService,0,152,0,10,0,37,0,12,0,7
