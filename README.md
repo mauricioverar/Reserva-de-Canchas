@@ -1,16 +1,3 @@
-Aquí tienes un **`README.md` profesional** para tu proyecto. Incluye:
-
-- Descripción del proyecto  
-- Requisitos del sistema  
-- Cómo ejecutar el proyecto  
-- Cómo ejecutar las pruebas y ver la cobertura con JaCoCo  
-- Estructura del proyecto  
-- Dependencias usadas  
-- Justificación del uso de JUnit 5 y Mockito  
-- Información sobre los principios SOLID aplicados  
-
----
-
 # 🧪 Módulo de Reservas de Canchas con TDD, Mockito y JaCoCo
 
 Este proyecto implementa un **módulo de reservas de canchas** siguiendo el **desarrollo dirigido por pruebas (TDD)**, con **JUnit 5** y **Mockito** para pruebas unitarias, y **JaCoCo** para medir la cobertura de código.
