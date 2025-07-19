@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import cl.codewave.model.Cancha;
 import cl.codewave.model.Reserva;
+import cl.codewave.repository.CanchaRepository;
+import cl.codewave.repository.ReservaRepository;
 
 public class ReservaService {
 
@@ -17,10 +19,10 @@ public class ReservaService {
   private final CanchaRepository canchaRepository;
 
   // Constructor
-<span class="fc" id="L20">  public ReservaService(ReservaRepository reservaRepository, CanchaRepository canchaRepository) {</span>
-<span class="fc" id="L21">    this.reservaRepository = Objects.requireNonNull(reservaRepository);</span>
-<span class="fc" id="L22">    this.canchaRepository = Objects.requireNonNull(canchaRepository);</span>
-<span class="fc" id="L23">  }</span>
+<span class="fc" id="L22">  public ReservaService(ReservaRepository reservaRepository, CanchaRepository canchaRepository) {</span>
+<span class="fc" id="L23">    this.reservaRepository = Objects.requireNonNull(reservaRepository);</span>
+<span class="fc" id="L24">    this.canchaRepository = Objects.requireNonNull(canchaRepository);</span>
+<span class="fc" id="L25">  }</span>
 
 
   /**
@@ -35,67 +37,67 @@ public class ReservaService {
    */
   public Reserva crearReserva(String id, String nombreCliente, String nombreCancha, LocalDate fecha, String horario) {
 
-<span class="fc" id="L38">    Objects.requireNonNull(id, &quot;ID no puede ser null&quot;);</span>
-<span class="fc" id="L39">    Objects.requireNonNull(nombreCliente, &quot;Nombre del cliente no puede ser null&quot;);</span>
-<span class="fc" id="L40">    Objects.requireNonNull(nombreCancha, &quot;Nombre de la cancha no puede ser null&quot;);</span>
-<span class="fc" id="L41">    Objects.requireNonNull(fecha, &quot;Fecha no puede ser null&quot;);</span>
-<span class="fc" id="L42">    Objects.requireNonNull(horario, &quot;Horario no puede ser null&quot;);</span>
+<span class="fc" id="L40">    Objects.requireNonNull(id, &quot;ID no puede ser null&quot;);</span>
+<span class="fc" id="L41">    Objects.requireNonNull(nombreCliente, &quot;Nombre del cliente no puede ser null&quot;);</span>
+<span class="fc" id="L42">    Objects.requireNonNull(nombreCancha, &quot;Nombre de la cancha no puede ser null&quot;);</span>
+<span class="fc" id="L43">    Objects.requireNonNull(fecha, &quot;Fecha no puede ser null&quot;);</span>
+<span class="fc" id="L44">    Objects.requireNonNull(horario, &quot;Horario no puede ser null&quot;);</span>
 
-<span class="fc" id="L44">    Cancha cancha = canchaRepository.findByNombre(nombreCancha);</span>
-<span class="fc" id="L45">    validarCanchaExiste(cancha);</span>
+<span class="fc" id="L46">    Cancha cancha = canchaRepository.findByNombre(nombreCancha);</span>
+<span class="fc" id="L47">    validarCanchaExiste(cancha);</span>
 
-<span class="fc" id="L47">    validarHorarioDisponible(cancha, horario, fecha, nombreCancha);</span>
+<span class="fc" id="L49">    validarHorarioDisponible(cancha, horario, fecha, nombreCancha);</span>
 
-<span class="fc" id="L49">    Reserva reserva = new Reserva(id, nombreCliente, nombreCancha, fecha, horario);</span>
-<span class="fc" id="L50">    cancha.eliminarHorario(horario);</span>
+<span class="fc" id="L51">    Reserva reserva = new Reserva(id, nombreCliente, nombreCancha, fecha, horario);</span>
+<span class="fc" id="L52">    cancha.eliminarHorario(horario);</span>
 
-<span class="fc" id="L52">    return reservaRepository.save(reserva);</span>
+<span class="fc" id="L54">    return reservaRepository.save(reserva);</span>
   }
 
 
   public void cancelarReserva(String id) {
-<span class="fc" id="L57">    Objects.requireNonNull(id, &quot;ID de reserva no puede ser null&quot;);</span>
-<span class="fc" id="L58">    Reserva reserva = reservaRepository.findById(id);</span>
-<span class="fc bfc" id="L59" title="All 2 branches covered.">    if (reserva == null) {</span>
-<span class="fc" id="L60">      throw new IllegalArgumentException(RESERVA_NO_ENCONTRADA);</span>
+<span class="fc" id="L59">    Objects.requireNonNull(id, &quot;ID de reserva no puede ser null&quot;);</span>
+<span class="fc" id="L60">    Reserva reserva = reservaRepository.findById(id);</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">    if (reserva == null) {</span>
+<span class="fc" id="L62">      throw new IllegalArgumentException(RESERVA_NO_ENCONTRADA);</span>
     }
 
-<span class="fc" id="L63">    String nombreCancha = reserva.getNombreCancha();</span>
-<span class="fc" id="L64">    Cancha cancha = canchaRepository.findByNombre(nombreCancha);</span>
+<span class="fc" id="L65">    String nombreCancha = reserva.getNombreCancha();</span>
+<span class="fc" id="L66">    Cancha cancha = canchaRepository.findByNombre(nombreCancha);</span>
 
-<span class="fc bfc" id="L66" title="All 2 branches covered.">    if (cancha == null) {</span>
-<span class="fc" id="L67">      throw new IllegalArgumentException(CANCHA_NO_ENCONTRADA);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">    if (cancha == null) {</span>
+<span class="fc" id="L69">      throw new IllegalArgumentException(CANCHA_NO_ENCONTRADA);</span>
     }
 
-<span class="fc" id="L70">    cancha.agregarHorario(reserva.getHorario());</span>
-<span class="fc" id="L71">    reservaRepository.deleteById(id);</span>
-<span class="fc" id="L72">  }</span>
+<span class="fc" id="L72">    cancha.agregarHorario(reserva.getHorario());</span>
+<span class="fc" id="L73">    reservaRepository.deleteById(id);</span>
+<span class="fc" id="L74">  }</span>
 
 
   public int contarReservasPorDia(LocalDate fecha) {
-<span class="fc" id="L76">    Objects.requireNonNull(fecha, &quot;Fecha no puede ser null&quot;);</span>
-<span class="fc" id="L77">    return reservaRepository.findByFecha(fecha).size();</span>
+<span class="fc" id="L78">    Objects.requireNonNull(fecha, &quot;Fecha no puede ser null&quot;);</span>
+<span class="fc" id="L79">    return reservaRepository.findByFecha(fecha).size();</span>
   }
 
 
   // Métodos privados para mejorar legibilidad
 
   private void validarCanchaExiste(Cancha cancha) {
-<span class="fc bfc" id="L84" title="All 2 branches covered.">    if (cancha == null) {</span>
-<span class="fc" id="L85">      throw new IllegalArgumentException(CANCHA_NO_ENCONTRADA);</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">    if (cancha == null) {</span>
+<span class="fc" id="L87">      throw new IllegalArgumentException(CANCHA_NO_ENCONTRADA);</span>
     }
-<span class="fc" id="L87">  }</span>
+<span class="fc" id="L89">  }</span>
 
 
   private void validarHorarioDisponible(Cancha cancha, String horario, LocalDate fecha, String nombreCancha) {
-<span class="fc bfc" id="L91" title="All 2 branches covered.">    if (!cancha.tieneHorarioDisponible(horario)) {</span>
-<span class="fc" id="L92">      throw new IllegalArgumentException(HORARIO_NO_DISPONIBLE);</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">    if (!cancha.tieneHorarioDisponible(horario)) {</span>
+<span class="fc" id="L94">      throw new IllegalArgumentException(HORARIO_NO_DISPONIBLE);</span>
     }
 
-<span class="fc" id="L95">    if (reservaRepository.findByCanchaAndFecha(nombreCancha, fecha).stream()</span>
-<span class="fc bfc" id="L96" title="All 2 branches covered.">        .anyMatch(r -&gt; r.getHorario().equals(horario))) {</span>
-<span class="fc" id="L97">      throw new IllegalArgumentException(CANCHA_RESERVADA_HORARIO);</span>
+<span class="fc" id="L97">    if (reservaRepository.findByCanchaAndFecha(nombreCancha, fecha).stream()</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">        .anyMatch(r -&gt; r.getHorario().equals(horario))) {</span>
+<span class="fc" id="L99">      throw new IllegalArgumentException(CANCHA_RESERVADA_HORARIO);</span>
     }
-<span class="fc" id="L99">  }</span>
+<span class="fc" id="L101">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="cl.codewave.service.ReservaServiceTest" time="0.638" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="cl.codewave.service.ReservaServiceTest" time="0.73" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk17.0.14_7\bin"/>
-    <property name="sun.java.command" value="C:\Users\mvera\AppData\Local\Temp\surefire7063107109258180888\surefirebooter10010661823645998401.jar C:\Users\mvera\AppData\Local\Temp\surefire7063107109258180888 2025-07-18T22-05-11_244-jvmRun1 surefire1243495729640886478tmp surefire_06796789646011075632tmp"/>
+    <property name="sun.java.command" value="C:\Users\mvera\AppData\Local\Temp\surefire6244037229884232365\surefirebooter640211402170238370.jar C:\Users\mvera\AppData\Local\Temp\surefire6244037229884232365 2025-07-18T23-04-02_509-jvmRun1 surefire14517763000033765907tmp surefire_010476575567567470690tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\mvera\Documents\QA\Mauricio\reservadecanchas\target\test-classes;C:\Users\mvera\Documents\QA\Mauricio\reservadecanchas\target\classes;C:\Users\mvera\.m2\repository\org\junit\jupiter\junit-jupiter\5.8.2\junit-jupiter-5.8.2.jar;C:\Users\mvera\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\mvera\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\mvera\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\mvera\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\mvera\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.2\junit-jupiter-params-5.8.2.jar;C:\Users\mvera\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\mvera\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\mvera\.m2\repository\org\mockito\mockito-core\4.11.0\mockito-core-4.11.0.jar;C:\Users\mvera\.m2\repository\net\bytebuddy\byte-buddy\1.12.19\byte-buddy-1.12.19.jar;C:\Users\mvera\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.19\byte-buddy-agent-1.12.19.jar;C:\Users\mvera\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\mvera\.m2\repository\org\mockito\mockito-junit-jupiter\4.11.0\mockito-junit-jupiter-4.11.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\mvera\AppData\Local\Temp\surefire7063107109258180888\surefirebooter10010661823645998401.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\mvera\AppData\Local\Temp\surefire6244037229884232365\surefirebooter640211402170238370.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.14+7-LTS"/>
@@ -58,12 +58,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testCancelarReserva_Exitoso" classname="cl.codewave.service.ReservaServiceTest" time="0.593"/>
-  <testcase name="testCrearReservaCanchaNoExiste" classname="cl.codewave.service.ReservaServiceTest" time="0"/>
-  <testcase name="testCancelarReserva_ReservaNoExiste" classname="cl.codewave.service.ReservaServiceTest" time="0.01"/>
+  <testcase name="testCancelarReserva_Exitoso" classname="cl.codewave.service.ReservaServiceTest" time="0.683"/>
+  <testcase name="testCrearReservaCanchaNoExiste" classname="cl.codewave.service.ReservaServiceTest" time="0.007"/>
+  <testcase name="testCancelarReserva_ReservaNoExiste" classname="cl.codewave.service.ReservaServiceTest" time="0.001"/>
   <testcase name="testCancelarReserva_CanchaNoExiste" classname="cl.codewave.service.ReservaServiceTest" time="0.002"/>
-  <testcase name="testCrearReservaYaReservada" classname="cl.codewave.service.ReservaServiceTest" time="0"/>
-  <testcase name="testCrearReservaExitosa" classname="cl.codewave.service.ReservaServiceTest" time="0.007"/>
+  <testcase name="testCrearReservaYaReservada" classname="cl.codewave.service.ReservaServiceTest" time="0.003"/>
+  <testcase name="testCrearReservaExitosa" classname="cl.codewave.service.ReservaServiceTest" time="0.004"/>
   <testcase name="testCrearReservaHorarioNoDisponible" classname="cl.codewave.service.ReservaServiceTest" time="0.001"/>
   <testcase name="testContarReservasPorDia" classname="cl.codewave.service.ReservaServiceTest" time="0.001"/>
 </testsuite>

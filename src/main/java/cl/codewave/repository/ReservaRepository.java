@@ -1,4 +1,4 @@
-package cl.codewave.service;
+package cl.codewave.repository;
 
 import java.time.LocalDate;
 import java.util.List;

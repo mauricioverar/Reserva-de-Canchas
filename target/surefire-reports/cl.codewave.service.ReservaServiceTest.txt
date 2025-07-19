@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: cl.codewave.service.ReservaServiceTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.638 s - in cl.codewave.service.ReservaServiceTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.73 s - in cl.codewave.service.ReservaServiceTest

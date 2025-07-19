@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import cl.codewave.model.Cancha;
 import cl.codewave.model.Reserva;
+import cl.codewave.repository.CanchaRepository;
+import cl.codewave.repository.ReservaRepository;
 
 public class ReservaService {
 
