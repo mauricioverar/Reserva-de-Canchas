@@ -3,6 +3,7 @@ package cl.codewave.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -17,8 +18,10 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import cl.codewave.model.Cancha;
+import cl.codewave.model.Reserva;
 
 @ExtendWith(MockitoExtension.class)
 class ReservaServiceTest {
@@ -53,10 +56,12 @@ class ReservaServiceTest {
 
     when(reservaRepository.findByCanchaAndFecha("Cancha 1", HOY)).thenReturn(Collections.emptyList());
 
+    when(reservaRepository.save(any(Reserva.class))).thenAnswer(invocation -> invocation.getArgument(0));
+
     Reserva reserva = reservaService.crearReserva("1", "Juan", "Cancha 1", HOY, "10:00");
 
     assertNotNull(reserva);
-    assertEquals("Juan", reserva.getCliente());
+    assertEquals("Juan", reserva.getNombreCliente());
 
     verify(reservaRepository).save(reservaCaptor.capture());
     assertEquals("10:00", reservaCaptor.getValue().getHorario());
@@ -68,14 +73,13 @@ class ReservaServiceTest {
 
     assertThrows(IllegalArgumentException.class,
         () -> reservaService.crearReserva("1", "Pedro", "Cancha 2", HOY, "10:00"));
-    verify(reservaRepository, never()).save(Mockito.<Reserva>anyObject());
+    verify(reservaRepository, never()).save(any(Reserva.class));
   }
 
   @Test
   void testCrearReservaHorarioNoDisponible() {
     Cancha cancha = new Cancha("Cancha 1", "Fútbol", Collections.emptySet());
     when(canchaRepository.findByNombre("Cancha 1")).thenReturn(cancha);
-    when(reservaRepository.findByCanchaAndFecha("Cancha 1", HOY)).thenReturn(Collections.emptyList());
 
     assertThrows(IllegalArgumentException.class,
         () -> reservaService.crearReserva("1", "Ana", "Cancha 1", HOY, "10:00"));

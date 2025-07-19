@@ -1,0 +1,6 @@
+cl\codewave\model\Horario.class
+cl\codewave\service\ReservaRepository.class
+cl\codewave\service\CanchaRepository.class
+cl\codewave\model\Cancha.class
+cl\codewave\model\Reserva.class
+cl\codewave\service\ReservaService.class
